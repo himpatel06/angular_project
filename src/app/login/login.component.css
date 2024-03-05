@@ -1,0 +1,14 @@
+.error{
+    margin-bottom: 16px;margin-top:-10px;
+}
+.mat-card1{
+    display: flex;
+    flex-direction: column;
+
+}
+.spinner{
+    align-self: center;
+}
+.main-div{
+    background-color: rgb(43, 122, 226)
+}

@@ -1,0 +1,77 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="35">
+      <mat-tab-group>
+        <mat-tab label="Login">
+         
+          <mat-card-content class="mat-card1">
+            <br>
+            <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
+          <form fxLayoutAlign = "stretch" 
+                fxLayout="column" 
+                [formGroup]="logInForm"
+                (ngSubmit)="login()"
+                *ngIf="!isLoading">
+  
+            <mat-form-field>
+              <input matInput
+               placeholder="email"
+                formControlName="email">
+            </mat-form-field>
+          
+            <mat-form-field>
+              <input matInput 
+              type="password" 
+              placeholder="Password" 
+              formControlName="password">
+            </mat-form-field>
+            <mat-error *ngIf="!logInForm.get('password')?.valid && logInForm.get('password')?.touched" class="error">please enter min 6 length password</mat-error>
+
+            <mat-form-field>
+                <mat-label>User Type</mat-label>
+                <select matNativeControl formControlName="entity">
+                  <option value="Inspector">Insprector</option>
+                  <option value="Customer">Customer</option>
+                </select>
+              </mat-form-field>
+            
+            <button mat-raised-button color="primary" type="submit">Login</button>
+          </form>
+        </mat-card-content>
+        </mat-tab>
+      
+        <mat-tab label="Signup">
+          
+          <mat-card-content>
+            <br>
+          <form 
+          fxLayoutAlign = "stretch" 
+          fxLayout="column"
+          [formGroup]="signUpForm"
+          (ngSubmit)="signUp()">
+          <mat-form-field>
+            <input matInput placeholder="Full Name"  formControlName="full_name">
+          </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Email"  formControlName="email">
+            </mat-form-field>
+          
+            <mat-form-field>
+              <input 
+              matInput type="password" 
+              placeholder="Password"
+              formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>User Type</mat-label>
+                <select matNativeControl formControlName="entity">
+                  <option value="Inspector">Insprector</option>
+                  <option value="Customer">Customer</option>
+                </select>
+              </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Sign Up</button>
+          </form>
+        </mat-card-content>
+        </mat-tab>
+    </mat-tab-group>
+    </mat-card>
+  </div>
